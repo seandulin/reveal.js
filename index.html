@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Designing Web API's - GMI Code Camp 5</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A talk for General Mills Code Camp 5">
+		<meta name="author" content="Sean Dulin">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -41,68 +41,73 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h1>Designing Web API's</h1>
+					<h3>General Mills Code Camp 5</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by <a href="http://">Sean Dulin</a> / <a href="http://twitter.com/seandulin">@SeanDulin</a></small>
 					</p>
 				</section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h2>What is a 'Web API'?</h2>
+						<p>
+							Any code listening for requests over HTTP and is not returning static files served off a disk.
+						</p>
 					</section>
+					
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+						<h2>What is it not?</h2>
+						<p>
+							<ul>
+								<li>TCP</li>
+								<li>UDP</li>
+								<li>Named Pipes</li>
+								<li>Web Sockets</li>
+							</ul>							
+						</p>
+						<aside class="notes">
+							Raw TCP has less overhead but is less reliable.  Maybe Connection Server?
+							<br />
+							UDP has a lot less overhead but is even more unreliable.  People might use this for high volume stats gather of server metrics.
+							<br />
+							Named Pipes are reliable once set up but are more brittle and less forgiving.  Maybe Connection Server?
+							<br />
+							A lot of these topics still apply, but the implementation and depth is different.  
+						</aside>
 					</section>
+				</section>
+				
+				<section>
+					<h2>Agenda</h2>
+					<p>
+						<ul>
+							<li>HTTP Refresher</li>
+							<li>Options</li>
+							<li>Routing and Verbs</li>
+							<li>Response Codes</li>
+							<li>Caching</li>
+							<li>Errors</li>
+							<li>Versioning</li>
+							<li>Documentation</li>
+						</ul>
+					</p>
+				</section>
+				
+				<section></section>
+				<section>
+					<section data-background="images/how_to_train_dragon.jpg"></section>
+					<section data-background="images/serious_dragon.jpg"></section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
+						
 					</section>
 				</section>
-
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
+				<section></section>
 
 				<section data-markdown>
 					<script type="text/template">
