@@ -102,10 +102,13 @@
 					<section>
 						<ul>
 							<li>Idempotent</li>
-							<li>Session-less</li>
+							<li>State-less</li>
 							<li>Non-blocking</li>
 							<li>Long running operations</li>
-						</ul>	
+						</ul>
+						<aside class="notes">
+							Stateless meaning one request has no knowledge of another request
+						</aside>
 					</section>
 				</section>
 				
@@ -148,13 +151,20 @@
 							Checkout a book -> POST to an endpoint of /book/1 with a isCheckedOut equal to true
 						</aside>
 					</section>
+					<section data-background="images/not_rest.png">
+						
+					</section>
 					<section>
 						<h2>HATEOAS</h2>
-						<p>Hypertext As The Engine Of Application State</p>
+						<p>
+							Hypertext As The Engine Of Application State
+							<br>
+							<a href="https://swapi.co/">https://swapi.co/</a>
+						</p>
 						<aside class="notes">
 							  "REST" + links to other resources
 							  <br/>
-							  Show example
+							  https://swapi.co/
 						</aside>
 					</section>
 				</section>
@@ -173,7 +183,9 @@
 							<li>Keep associations to about two levels</li>
 						</ul>
 						<aside class="notes">
-							Maybe show Conference site API?
+							Http is meant for people
+							Demo tab for plural
+							Demo tab postman for conference site "API Levels"
 						</aside>
 					</section>
 					<section>
@@ -186,25 +198,8 @@
 				<section>
 					<section>
 						<p>You're going to get HTTP 200 OK.<p>
-						<br/>
-						<p>
-							<pre><code data-trim contenteditable>
-<?xml version="1.0" ?>
-<env:Envelope xmlns:env='http://www.w3.org/2003/05/soap-envelope' 
-	xmlns:xml='http://www.w3.org/XML/1998/namespace'>
-	<env:Body>
-  <env:Fault>
-   <env:Code><env:Value>env:Sender</env:Value></env:Code>
-   <env:Reason>
-     <env:Text xml:lang='en'>You did something wrong silly!</env:Text>
-   </env:Reason>
-  </env:Fault>
- </env:Body>
-</env:Envelope>
-							</code></pre>
-						</p>
 						<aside class="notes">
-							Use Sender for client issues, Receiver for server issues
+							DEMO!!!!!!!!!!!!!
 						</aside>
 					</section>
 					
@@ -225,27 +220,63 @@
 						</aside>
 					</section>
 				</section>
-					
+				
 				<section>
-					<pre><code data-trim contenteditable>
-{
-"id": "2f0bf3ef-e3da-4e38-a374-55c63f8dc34f",
-"links": {
-	"self": "https://library.generalmills.com/api/logs/2f0bf3ef-e3da-4e38-a374-55c63f8dc34f"
-	"about": "https://msdn.microsoft.com/en-us/library/system.argumentexception(v=vs.110).aspx"
-},
-"status": "500",
-"code": "0",
-"title": "System.ArgumentException",
-"detail": "The parameters dictionary contains a null entry for parameter 'categoryId' of non-nullable type 'System.Int32'"
-}
-					</code></pre>	
+					<section>
+						<p>
+							<pre><code data-trim contenteditable>
+<?xml version="1.0" ?>
+<env:Envelope xmlns:env='http://www.w3.org/2003/05/soap-envelope' 
+	xmlns:xml='http://www.w3.org/XML/1998/namespace'>
+	<env:Body>
+  <env:Fault>
+   <env:Code><env:Value>env:Sender</env:Value></env:Code>
+   <env:Reason>
+     <env:Text xml:lang='en'>You did something wrong silly!</env:Text>
+   </env:Reason>
+  </env:Fault>
+ </env:Body>
+</env:Envelope>
+							</code></pre>
+						</p>
+						<aside class="notes">
+							Use Sender for client issues, Receiver for server issues
+						</aside>
+					</section>
+					<section>
+						<p>
+							Do NOT return 200 for errors with an error object
+							<br />
+							<a href="http://jsonapi.org/">http://jsonapi.org/</a>
+						</p>
+						<pre><code data-trim contenteditable>
+	{
+	"id": "2f0bf3ef-e3da-4e38-a374-55c63f8dc34f",
+	"links": {
+		"self": "https://library.generalmills.com/api/logs/2f0bf3ef-e3da-4e38-a374-55c63f8dc34f"
+		"about": "https://msdn.microsoft.com/en-us/library/system.argumentexception(v=vs.110).aspx"
+	},
+	"status": "500",
+	"code": "0",
+	"title": "System.ArgumentException",
+	"detail": "The parameters dictionary contains a null entry for parameter 'categoryId' of non-nullable type 'System.Int32'"
+	}
+						</code></pre>	
+						<aside class="notes">
+							DEMO!!!!!!!!!!!!!!!!!!
+						</aside>
+					</section>
 				</section>
 				
 				<section>
 					<h3>Cache-Control</h3>
 					<br />
 					<h3>Etag / If-None-Match</h3>
+					
+					<aside class="notes">
+						Timezones suck, don't use dates'
+						DEMO!!!!!!!!!!!!!!!!!
+					</aside>
 				</section>
 				
 				<section>
@@ -253,6 +284,8 @@
 						<h2>Start with a version number</h2><h2 class="fragment">Always</h2>
 						<aside class="notes">
 							use /v1 or /v2.  Don't bother with minor versions - you won't use it.  Try not to support more than 2 building to 3 versions
+							schema versions
+							
 						</aside>
 					</section>
 				</section>
@@ -261,7 +294,7 @@
 					<p>Documentation will make or break API</p>
 					
 					<aside class="notes">
-						Get access to Resource Demand Help Pages
+						https://d.resourcedemand.generalmills.com/Help
 						
 						Fix Swagger issues in WIC Admin
 					</aside>
@@ -269,6 +302,24 @@
 				
 				<section>
 					<h2>Thank you</h2>
+				</section>
+				
+				<section>
+					<h2>CORS</h2>
+					<p>
+						This is a browser security feature.  Wildcards have lots of restrictions.	
+					</p>
+					<aside class="notes">
+						DEMO
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Internal - Windows Auth</h2>
+					<h2>External - OAuth 2.0</h2>
+					<aside class="notes">
+						Need to create a demo for this
+					</aside>
 				</section>
 			</div>
 
